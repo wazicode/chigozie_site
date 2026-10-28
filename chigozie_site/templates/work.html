@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Work | {{ p.name }}{% endblock %}
+{% block content %}
+<section class="page">
+  <div class="wrap">
+    <h1 class="page-title">Work</h1>
+    <div class="projects">
+      {% for pr in projects %}
+      <a class="proj" href="{{ pr.url }}" target="_blank" rel="noopener">
+        <h3>{{ pr.title }}</h3>
+        <p>{{ pr.summary }}<br><span class="stack">{{ pr.stack }}</span></p>
+        <span class="tag">{{ pr.status }}, {{ pr.year }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

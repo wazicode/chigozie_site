@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}About | {{ p.name }}{% endblock %}
+{% block content %}
+<section class="page">
+  <div class="wrap">
+    <div class="about">
+      <h1 class="about-title">Software for the field, not just the screen.</h1>
+      <div>{% for para in p.about %}<p>{{ para }}</p>{% endfor %}</div>
+    </div>
+    <div class="label skills-label">What I work with</div>
+    <div class="skills">
+      {% for group, items in skills.items() %}
+      <div><h4>{{ group }}</h4><ul>{% for i in items %}<li>{{ i }}</li>{% endfor %}</ul></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

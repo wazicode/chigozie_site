@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+  <svg class="curve" viewBox="0 0 800 420" aria-hidden="true">
+    <path class="grid" d="M40 40H780M40 140H780M40 240H780M40 340H780M40 380V30"/>
+    <path class="line" d="M40 60C120 70 170 180 250 235S420 310 520 330 700 350 780 355"/>
+    <text x="48" y="28">Oil rate (bbl/d)</text>
+    <text x="700" y="395">Time</text>
+  </svg>
+  <div class="wrap">
+    <div class="greet"><span id="greet">Hello</span></div>
+    <h1>{{ p.name }}</h1>
+    <div class="role">
+      <p><b>{{ p.title }}.</b> {{ p.tagline }}</p>
+      <p>Based in {{ p.location }}.<br>ESUT graduate.</p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="label">Recent work</div>
+    <div class="projects">
+      {% for pr in projects %}
+      <a class="proj" href="{{ pr.url }}" target="_blank" rel="noopener">
+        <h3>{{ pr.title }}</h3>
+        <p>{{ pr.summary }}</p>
+        <span class="tag">{{ pr.status }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    <p class="more"><a class="pill" href="{{ url_for('work') }}">More work</a></p>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="label">Contact</div>
+    <h2>Let's build something useful</h2>
+    <a class="round" href="{{ url_for('contact') }}">Get in touch</a>
+  </div>
+</section>
+{% endblock %}
