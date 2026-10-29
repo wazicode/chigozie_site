@@ -15,7 +15,7 @@ app = Flask(__name__)
 PROFILE = {
     "name": "Agbo Chigozie Anthony",
     "short_name": "Chigozie Agbo",
-    "title": "Python Developer for Oil & Gas",
+    "title": "Python Developer",
     "location": "Lagos, Nigeria",
     "email": "",  # add your email to show an Email button, e.g. "you@example.com"
     # Contact form on a static site needs a form service. Create a free form at
@@ -27,19 +27,11 @@ PROFILE = {
     "edition": "2026",
     "github": "https://github.com/wazicode",
     "linkedin": "https://www.linkedin.com/in/agbo-chigozie-017192213",
-    "tagline": (
-        "Python developer building monitoring, automation and data tools "
-        "for oil and gas. I turn production data into decisions people can act on."
-    ),
+    "tagline": "Python developer focused on software, data and automation for the oil and gas industry.",
     "about": [
-        "I'm a Python developer who wants to work where software meets engineering. "
-        "I care about tools that give operators clearer visibility and take "
-        "repetitive manual work off their plate.",
-        "My Oilfield Management System grew out of that interest: watching pressure, "
-        "oil rate and water cut together, and spotting operational risks early.",
-        "I graduated from Enugu State University of Science and Technology (ESUT). "
-        "I'm looking to grow across software development, automation and the energy "
-        "industry, and to collaborate with professionals on practical problems.",
+        "I'm a Python developer with a strong interest in the oil and gas industry, industrial automation and digital oilfield technologies. I graduated from Enugu State University of Science and Technology (ESUT).",
+        "I build tools that connect programming, data analysis and industrial processes: production monitoring, well diagnostics, pressure and oil-rate analysis, water-cut tracking and early detection of operational risks.",
+        "My goal is to grow at the intersection of software development, automation and the energy industry, and to work with professionals on practical problems in the field.",
     ],
 }
 
@@ -50,18 +42,6 @@ PROJECTS = [
      "stack": "Python, Tkinter, Matplotlib", "role": "Design & Development",
      "summary": "Desktop app for production monitoring: pressure and oil-rate analysis, water-cut tracking, trends and risk flags.",
      "desc": "A Python desktop application built around oilfield monitoring. It plots production trends, pressure and oil rate, tracks water cut, and highlights potential operational risks so decisions can be made from data.",
-     "url": "https://github.com/wazicode"},
-    {"slug": "decline-curve-analyzer", "title": "Decline Curve Analyzer",
-     "category": "Forecasting", "year": "2026", "status": "In progress",
-     "image": "images/me.jpg", "stack": "Python, SciPy, Matplotlib", "role": "Development",
-     "summary": "Fit Arps decline models to rate data and forecast production.",
-     "desc": "A tool that fits exponential, hyperbolic and harmonic decline models to production data and forecasts future rates.",
-     "url": "https://github.com/wazicode"},
-    {"slug": "well-anomaly-detector", "title": "Well Anomaly Detector",
-     "category": "Automation & Monitoring", "year": "2026", "status": "Planned",
-     "image": "images/me.jpg", "stack": "Python, Pandas", "role": "Development",
-     "summary": "Flag sudden pressure drops and rising water cut from well data.",
-     "desc": "Rule-based and statistical checks that flag abnormal pressure drops and rising water cut so engineers see problems early.",
      "url": "https://github.com/wazicode"},
 ]
 

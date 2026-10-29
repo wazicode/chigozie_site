@@ -5,7 +5,7 @@
     <h4 class="kicker">{{ p.title }}</h4>
     <h1>{{ p.name }}<span class="dash">&mdash;</span></h1>
     <div class="role">
-      <p><b>{{ p.tagline }}</b><br><br>Software, data and automation meet engineering. That's where I want to work.</p>
+      <p>{{ p.tagline }}</p>
       <a class="round sm mag" href="{{ url_for('about') }}">About me</a>
     </div>
   </div>
@@ -23,7 +23,7 @@
       </a>
       {% endfor %}
     </div>
-    <p class="more"><a class="pill" href="{{ url_for('work') }}">More work <sup>{{ n_projects }}</sup></a></p>
+    {% if n_projects > 1 %}<p class="more"><a class="pill" href="{{ url_for('work') }}">More work <sup>{{ n_projects }}</sup></a></p>{% endif %}
   </div>
 </section>
 

@@ -5,7 +5,7 @@
   <div class="wrap">
     <div class="about">
       <div>
-        <h1 class="about-title">Software for the field, not just the screen.</h1>
+        <h1 class="about-title">Python developer working where software meets the energy industry.</h1>
         {% for para in p.about %}<p>{{ para }}</p>{% endfor %}
       </div>
       <img class="portrait" src="{{ url_for('static', filename=p.photo) }}" alt="{{ p.name }}">
