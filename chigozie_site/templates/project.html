@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ pr.title }} | {{ p.name }}{% endblock %}
+{% block content %}
+<section class="page">
+  <div class="wrap">
+    <h1 class="page-title small">{{ pr.title }}</h1>
+    <div class="meta">
+      <div><h5>Role</h5>{{ pr.role }}</div>
+      <div><h5>Stack</h5>{{ pr.stack }}</div>
+      <div><h5>Year</h5>{{ pr.year }}</div>
+      <div><h5>Status</h5>{{ pr.status }}</div>
+    </div>
+    <img class="hero-img" src="{{ url_for('static', filename=pr.image) }}" alt="{{ pr.title }}">
+    <p class="lead">{{ pr.desc }}</p>
+    <p class="more"><a class="pill solid" href="{{ pr.url }}" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="pill" href="{{ url_for('work') }}">All work</a></p>
+  </div>
+</section>
+{% endblock %}

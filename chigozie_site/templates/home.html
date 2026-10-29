@@ -1,18 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="hero">
-  <svg class="curve" viewBox="0 0 800 420" aria-hidden="true">
-    <path class="grid" d="M40 40H780M40 140H780M40 240H780M40 340H780M40 380V30"/>
-    <path class="line" d="M40 60C120 70 170 180 250 235S420 310 520 330 700 350 780 355"/>
-    <text x="48" y="28">Oil rate (bbl/d)</text>
-    <text x="700" y="395">Time</text>
-  </svg>
   <div class="wrap">
-    <div class="greet"><span id="greet">Hello</span></div>
-    <h1>{{ p.name }}</h1>
+    <h4 class="kicker">{{ p.title }}</h4>
+    <h1>{{ p.name }}<span class="dash">&mdash;</span></h1>
     <div class="role">
-      <p><b>{{ p.title }}.</b> {{ p.tagline }}</p>
-      <p>Based in {{ p.location }}.<br>ESUT graduate.</p>
+      <p><b>{{ p.tagline }}</b><br><br>Software, data and automation meet engineering. That's where I want to work.</p>
+      <a class="round sm mag" href="{{ url_for('about') }}">About me</a>
     </div>
   </div>
 </div>
@@ -22,22 +16,26 @@
     <div class="label">Recent work</div>
     <div class="projects">
       {% for pr in projects %}
-      <a class="proj" href="{{ pr.url }}" target="_blank" rel="noopener">
+      <a class="proj" href="{{ url_for('project', slug=pr.slug) }}" data-img="{{ url_for('static', filename=pr.image) }}" data-cursor>
         <h3>{{ pr.title }}</h3>
-        <p>{{ pr.summary }}</p>
-        <span class="tag">{{ pr.status }}</span>
+        <p>{{ pr.role }}</p>
+        <span class="tag">{{ pr.year }}</span>
       </a>
       {% endfor %}
     </div>
-    <p class="more"><a class="pill" href="{{ url_for('work') }}">More work</a></p>
+    <p class="more"><a class="pill" href="{{ url_for('work') }}">More work <sup>{{ n_projects }}</sup></a></p>
   </div>
 </section>
 
 <section class="contact">
   <div class="wrap">
     <div class="label">Contact</div>
-    <h2>Let's build something useful</h2>
-    <a class="round" href="{{ url_for('contact') }}">Get in touch</a>
+    <h2>Let's work together</h2>
+    <a class="round mag" href="{{ url_for('contact') }}">Get in touch</a>
+    <div class="links">
+      {% if p.email %}<a class="pill" href="mailto:{{ p.email }}">{{ p.email }}</a>{% endif %}
+      {% if p.phone %}<a class="pill" href="tel:{{ p.phone }}">{{ p.phone }}</a>{% endif %}
+    </div>
   </div>
 </section>
 {% endblock %}

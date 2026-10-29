@@ -4,8 +4,11 @@
 <section class="page">
   <div class="wrap">
     <div class="about">
-      <h1 class="about-title">Software for the field, not just the screen.</h1>
-      <div>{% for para in p.about %}<p>{{ para }}</p>{% endfor %}</div>
+      <div>
+        <h1 class="about-title">Software for the field, not just the screen.</h1>
+        {% for para in p.about %}<p>{{ para }}</p>{% endfor %}
+      </div>
+      <img class="portrait" src="{{ url_for('static', filename=p.photo) }}" alt="{{ p.name }}">
     </div>
     <div class="label skills-label">What I work with</div>
     <div class="skills">

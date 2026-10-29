@@ -9,7 +9,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from app import app
+from app import app, PROJECTS
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "build"
@@ -26,6 +26,9 @@ shutil.copytree(ROOT / "static", OUT / "static")
 client = app.test_client()
 pages = {"/": "index.html", "/work": "work/index.html",
          "/about": "about/index.html", "/contact": "contact/index.html"}
+
+for pr in PROJECTS:
+    pages[f"/work/{pr['slug']}"] = f"work/{pr['slug']}/index.html"
 
 for url, target in pages.items():
     res = client.get(url, environ_overrides={"SCRIPT_NAME": base})

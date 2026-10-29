@@ -13,6 +13,7 @@
     </form>
     {% endif %}
     <div class="links">
+      {% if p.phone %}<a class="pill" href="tel:{{ p.phone }}">{{ p.phone }}</a>{% endif %}
       <a class="pill" href="{{ p.github }}" target="_blank" rel="noopener">GitHub</a>
       <a class="pill" href="{{ p.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
       {% if p.email %}<a class="pill" href="mailto:{{ p.email }}">Email</a>{% endif %}

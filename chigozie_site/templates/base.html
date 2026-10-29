@@ -11,10 +11,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+<div id="intro" aria-hidden="true"><span id="introWord">Hello</span></div>
+<div id="curtain"></div>
+<div id="cursor" aria-hidden="true"><span>View</span></div>
+<div id="peek" aria-hidden="true"><img alt="" src=""></div>
+
 <header>
-  <a class="logo" href="{{ url_for('home') }}">{{ p.short_name.split()[0] }}<span> {{ p.short_name.split()[1] }}</span></a>
+  <a class="logo" href="{{ url_for('home') }}">&copy; {{ p.short_name }}</a>
   <nav class="top" aria-label="Main">
-    {% for ep, label in [('home','Home'),('work','Work'),('about','About'),('contact','Contact')] %}
+    {% for ep, label in [('work','Work'),('about','About'),('contact','Contact')] %}
       <a href="{{ url_for(ep) }}" {% if request.endpoint == ep %}class="active" aria-current="page"{% endif %}>{{ label }}</a>
     {% endfor %}
   </nav>
@@ -22,21 +27,31 @@
 </header>
 
 <div class="overlay" id="overlay">
-  {% for ep, label in [('home','Home'),('work','Work'),('about','About'),('contact','Contact')] %}
-    <a href="{{ url_for(ep) }}">{{ label }}</a>
-  {% endfor %}
+  <div>
+    <h5>Navigation</h5>
+    {% for ep, label in [('home','Home'),('work','Work'),('about','About'),('contact','Contact')] %}
+      <a class="big" href="{{ url_for(ep) }}">{{ label }}</a>
+    {% endfor %}
+  </div>
+  <div class="side">
+    <h5>Socials</h5>
+    <a href="{{ p.github }}" target="_blank" rel="noopener">GitHub</a>
+    <a href="{{ p.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+    <img src="{{ url_for('static', filename=p.photo) }}" alt="{{ p.name }}">
+    <p>Located in Nigeria</p>
+  </div>
 </div>
 
 <main>{% block content %}{% endblock %}</main>
 
 <footer>
-  <div class="wrap">
-    <span>&copy; {{ year }} {{ p.name }}</span>
-    <span>
-      <a href="{{ p.github }}" target="_blank" rel="noopener">GitHub</a> &nbsp;
-      <a href="{{ p.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-    </span>
-    <span>Local time in Lagos <b id="clock">--:--</b></span>
+  <div class="wrap foot">
+    <div><h5>Version</h5>{{ p.edition }} &copy; Edition</div>
+    <div><h5>Local time</h5><b id="clock">--:--</b></div>
+    <div><h5>Socials</h5>
+      <a href="{{ p.github }}" target="_blank" rel="noopener">GitHub</a><br>
+      <a href="{{ p.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="who"><img src="{{ url_for('static', filename=p.photo) }}" alt=""><span>Located in<br>Nigeria</span></div>
   </div>
 </footer>
 <script src="{{ url_for('static', filename='main.js') }}"></script>

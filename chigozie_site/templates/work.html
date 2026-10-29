@@ -5,11 +5,10 @@
   <div class="wrap">
     <h1 class="page-title">Work</h1>
     <div class="projects">
+      <div class="thead"><span>Project</span><span>Category</span><span>Year</span></div>
       {% for pr in projects %}
-      <a class="proj" href="{{ pr.url }}" target="_blank" rel="noopener">
-        <h3>{{ pr.title }}</h3>
-        <p>{{ pr.summary }}<br><span class="stack">{{ pr.stack }}</span></p>
-        <span class="tag">{{ pr.status }}, {{ pr.year }}</span>
+      <a class="proj" href="{{ url_for('project', slug=pr.slug) }}" data-img="{{ url_for('static', filename=pr.image) }}" data-cursor>
+        <h3>{{ pr.title }}</h3><p>{{ pr.category }}</p><span class="tag">{{ pr.year }}</span>
       </a>
       {% endfor %}
     </div>
